@@ -1,17 +1,35 @@
-# tiny_bookshop
+# Tiny's Bookshop
 
-A new Flutter project.
+A Flutter bookstore ordering app for the UI Fundamentals assignment.
 
-## Getting Started
+## Features
+- Four books with authors and sample prices
+- Add and remove book quantities
+- Automatically calculated order total
+- Optional gift wrapping for $3 per order
+- Gift message shown when wrapping is selected
+- Order confirmation dialog
+- Reusable widgets for book cards and price rows
 
-This project is a starting point for a Flutter application.
+## UI element explored
+The app uses Card widgets with rounded corners and elevation to organize the books and order details. A comment identifies this in lib/main.dart.
 
-A few resources to get you started if this is your first Flutter project:
+## Run the app
+With Flutter installed, run:
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+```sh
+flutter pub get
+flutter run -d web-server
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Open the local address printed in the terminal.
+
+## Checks
+```sh
+flutter analyze
+flutter test
+```
+
+The widget test checks book selection, gift wrapping, the calculated total, and order confirmation.
+
+This is a class demonstration. It does not process payments or place real orders.
