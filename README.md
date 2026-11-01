@@ -9,10 +9,11 @@ A Flutter bookstore ordering app for the UI Fundamentals assignment.
 - Optional gift wrapping for $3 per order
 - Gift message shown when wrapping is selected
 - Order confirmation dialog
+- Expandable pickup information
 - Reusable widgets for book cards and price rows
 
 ## UI element explored
-The app uses Card widgets with rounded corners and elevation to organize the books and order details. A comment identifies this in lib/main.dart.
+The app uses an ExpansionTile to let customers expand and collapse pickup information. A comment identifies it in lib/main.dart.
 
 ## Run the app
 With Flutter installed, run:

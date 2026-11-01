@@ -35,6 +35,7 @@ class Book {
   const Book(this.title, this.author, this.price, this.color);
 }
 
+// Sample prices for this class demonstration.
 const books = [
   Book(
     'Moth to a Flame',
@@ -83,12 +84,13 @@ class _BookshopPageState extends State<BookshopPage> {
     return amount;
   }
 
-  // Charge gift wrapping once per order, only when books are selected.
+  // Charge gift wrapping once per order when books are selected.
   int get wrappingCost => giftWrap && itemCount > 0 ? 300 : 0;
 
   int get total => subtotal + wrappingCost;
 
   void changeQuantity(int index, int change) {
+    if (quantities[index] + change < 0) return;
     setState(() {
       quantities[index] += change;
     });
@@ -151,6 +153,24 @@ class _BookshopPageState extends State<BookshopPage> {
               padding: const EdgeInsets.all(20),
               children: [
                 const ShopHeader(),
+                const SizedBox(height: 12),
+
+                // New UI element explored: ExpansionTile lets customers
+                // expand and collapse the pickup information.
+                const ExpansionTile(
+                  leading: Icon(Icons.storefront),
+                  title: Text('Pickup information'),
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(16),
+                      child: Text(
+                        'Review your books, choose gift wrapping if needed, '
+                        'and confirm your order. Your confirmation will show '
+                        'the selected books and total for pickup.',
+                      ),
+                    ),
+                  ],
+                ),
                 const SizedBox(height: 24),
                 const Text(
                   'Find your next good read',
@@ -317,7 +337,6 @@ class ShopPanel extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // New UI element explored: Card with rounded corners and elevation.
     return Card(
       margin: const EdgeInsets.only(bottom: 12),
       color: Colors.white,
